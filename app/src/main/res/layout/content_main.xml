@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.amit.reflexreactor.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Single Player"
+        android:id="@+id/single"
+        android:layout_marginTop="113dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="single_start"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Multi Player"
+        android:id="@+id/Multi"
+        android:layout_below="@+id/single"
+        android:layout_alignRight="@+id/single"
+        android:layout_alignEnd="@+id/single"
+        android:onClick="multi_start"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="ScoreBoard"
+        android:id="@+id/scoreboard"
+        android:layout_below="@+id/Multi"
+        android:layout_centerHorizontal="true"
+        android:onClick="show_score"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Invite/Requests"
+        android:id="@+id/invite"
+        android:layout_below="@+id/scoreboard"
+        android:layout_alignLeft="@+id/scoreboard"
+        android:layout_alignStart="@+id/scoreboard"
+        android:onClick="cheak_requests"/>
+
+</RelativeLayout>
