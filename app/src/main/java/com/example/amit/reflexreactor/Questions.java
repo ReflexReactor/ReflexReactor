@@ -59,7 +59,7 @@ public class Questions extends AppCompatActivity {
 
         tview.append(level);
 
-        tview.append(dbasehelper.getSubjectData());
+        //tview.append(dbasehelper.getSubjectData());
     }
 
 
