@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 public class MyDatabaseAdapter {
 
@@ -29,6 +30,11 @@ public class MyDatabaseAdapter {
         public static final int DATABESE_VERSION = 3;
         public static final String UID = "_id";
         public static final String QUESTION = "question";
+        public static final String OPTION_1 = "option1";
+        public static final String OPTION_2 = "option2";
+        public static final String OPTION_3 = "option3";
+        public static final String OPTION_4 = "option4";
+
 
         private SQLiteDatabase myDataBase;
         private Context context;
@@ -111,19 +117,31 @@ public class MyDatabaseAdapter {
         }
     }
 
-    public String getSubjectData() {
+    public ArrayList<String> getSubjectData(int p) {
         SQLiteDatabase db = helper.getWritableDatabase();
-        String[] columns = {MyHelper.UID, MyHelper.QUESTION};
-        Cursor cursor = db.query(MyHelper.TABLE_NAME, columns, null, null, null, null, null, null);
-        StringBuffer stringBuffer = new StringBuffer();
+        String[] columns = {MyHelper.UID, MyHelper.QUESTION,MyHelper.OPTION_1,MyHelper.OPTION_2,MyHelper.OPTION_3,MyHelper.OPTION_4};
+        Cursor cursor = db.query(MyHelper.TABLE_NAME, columns, "_id="+p+"", null, null, null, null, null);
+        ArrayList<String> list =  new ArrayList<String>();
         while (cursor.moveToNext()) {
             int index = cursor.getColumnIndex(MyHelper.UID);
             int index2 = cursor.getColumnIndex(MyHelper.QUESTION);
+            int index3 = cursor.getColumnIndex(MyHelper.OPTION_1);
+            int index4 = cursor.getColumnIndex(MyHelper.OPTION_2);
+            int index5 = cursor.getColumnIndex(MyHelper.OPTION_3);
+            int index6 = cursor.getColumnIndex(MyHelper.OPTION_4);
             String uidvalue = cursor.getString(index);
             String question_value = cursor.getString(index2);
-            stringBuffer.append(uidvalue + " " + question_value + " \n");
+            String option1 = cursor.getString(index3);
+            String option2 = cursor.getString(index4);
+            String option3 = cursor.getString(index5);
+            String option4 = cursor.getString(index6);
+            list.add(uidvalue);
+            list.add(question_value);
+            list.add(option1);
+            list.add(option2);
+            list.add(option3);
+            list.add(option4);
         }
-        return stringBuffer.toString();
+        return list;
     }
-
 }
