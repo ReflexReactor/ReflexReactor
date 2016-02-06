@@ -43,24 +43,24 @@
                 android:textStyle="italic" />
 
             <Button
-                android:id="@+id/aeroscience"
+                android:id="@+id/sports"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/geography"
                 android:layout_marginTop="3dp"
-                android:onClick="select_aeroscience"
-                android:text="AEROSCIENCE"
+                android:onClick="select_sports"
+                android:text="SPORTS"
                 android:textSize="30sp"
                 android:textStyle="italic" />
 
             <Button
-                android:id="@+id/travel"
+                android:id="@+id/mythology"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/aeroscience"
+                android:layout_below="@+id/sports"
                 android:layout_marginTop="3dp"
-                android:onClick="select_travel"
-                android:text="TRAVEL"
+                android:onClick="select_mythology"
+                android:text="MYTHOLOGY"
                 android:textSize="30sp"
                 android:textStyle="italic" />
 
@@ -68,7 +68,7 @@
                 android:id="@+id/cricket"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/travel"
+                android:layout_below="@+id/mythology"
                 android:layout_marginTop="3dp"
                 android:onClick="select_cricket"
                 android:text="CRICKET"

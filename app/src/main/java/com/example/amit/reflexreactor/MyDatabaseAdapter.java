@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MyDatabaseAdapter {
 
@@ -26,7 +27,7 @@ public class MyDatabaseAdapter {
 
         public static final String DATABASE_NAME = "questions.db";
         private static final String DB_PATH = "/data/data/com.example.amit.reflexreactor/databases/";
-        public static final String TABLE_NAME = "science";
+      //  public static final String TABLE_NAME = "science";
         public static final int DATABESE_VERSION = 3;
         public static final String UID = "_id";
         public static final String QUESTION = "question";
@@ -117,10 +118,10 @@ public class MyDatabaseAdapter {
         }
     }
 
-    public ArrayList<String> getSubjectData(int p) {
+    public ArrayList<String> getSubjectData(String table_name,int my_random_number) {
         SQLiteDatabase db = helper.getWritableDatabase();
         String[] columns = {MyHelper.UID, MyHelper.QUESTION,MyHelper.OPTION_1,MyHelper.OPTION_2,MyHelper.OPTION_3,MyHelper.OPTION_4};
-        Cursor cursor = db.query(MyHelper.TABLE_NAME, columns, "_id="+p+"", null, null, null, null, null);
+        Cursor cursor = db.query(table_name.toLowerCase(), columns, "_id="+my_random_number+"", null, null, null, null, null);
         ArrayList<String> list =  new ArrayList<String>();
         while (cursor.moveToNext()) {
             int index = cursor.getColumnIndex(MyHelper.UID);

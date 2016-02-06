@@ -8,19 +8,26 @@ import android.view.View;
 
 public class Single_player extends AppCompatActivity {
 
+
     int LEVEL=0;
+    String User_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_player);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent  intent1;
+        intent1 = getIntent();
+        User_id = intent1.getStringExtra("user_id");
     }
 
     public void start_category()
     {
         Intent intent = new Intent(this,Category.class);
         intent.putExtra("MyLevel",LEVEL);
+        intent.putExtra("user_id",User_id);
         startActivity(intent);
     }
 

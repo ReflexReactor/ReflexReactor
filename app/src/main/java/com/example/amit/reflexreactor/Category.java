@@ -16,6 +16,7 @@ public class Category extends AppCompatActivity {
     String alist[] = new String[15];
     int idx = 0;
     int mylevel;
+    String User_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class Category extends AppCompatActivity {
         Intent intent = getIntent();
         intent.getExtras();
         mylevel = intent.getIntExtra("MyLevel", 0);
+        User_id = intent.getStringExtra("user_id");
     }
 
     public void start_single(View view) {
@@ -38,6 +40,7 @@ public class Category extends AppCompatActivity {
             intent.putExtra("selected_categories", alist);
             intent.putExtra("idx", idx);
             intent.putExtra("mylevel", mylevel);
+            intent.putExtra("user_id",User_id);
             startActivity(intent);
         }
     }
@@ -49,15 +52,15 @@ public class Category extends AppCompatActivity {
         idx++;
     }
 
-    public void select_aeroscience(View view) {
-        btn = (Button) findViewById(R.id.aeroscience);
+    public void select_sports(View view) {
+        btn = (Button) findViewById(R.id.sports);
         btn.setBackgroundColor(Color.CYAN);
         alist[idx] = btn.getText().toString();
         idx++;
     }
 
-    public void select_travel(View view) {
-        btn = (Button) findViewById(R.id.travel);
+    public void select_mythology(View view) {
+        btn = (Button) findViewById(R.id.mythology);
         btn.setBackgroundColor(Color.CYAN);
         alist[idx] = btn.getText().toString();
         idx++;
